@@ -24,7 +24,7 @@ col = 0
 sheet.write(0, col, "Wallet")
 sheet.write(0, col + 1, "Tokens")
 sheet.write(0, col + 2, "Balance")
-sheet.write(0, col + 3, "Percent")
+sheet.write(0, col + 3, "Percentage")
 
 #Run the array wallets.
 for i in range(len(exchanges)):
@@ -35,8 +35,8 @@ for i in range(len(exchanges)):
     balance = float(value['result'])/1e16
 
     op = (balance/exchangesToken[i])*100
-    porcentaje =  str("{0:.2f}".format(op)) + '%'
-    
+    porcentaje =  f"Percentage: {op:.2f}%"
+
 #Write the values in the Excel file and print in the terminal.
     print(i+1, ' :::: ', exchanges[i], ' >>>>>> ', exchangesToken[i])
     sheet.write(i+1, col, exchanges[i])
